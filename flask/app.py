@@ -1,4 +1,6 @@
 from flask import Flask, render_template, json, request 
+import joblib
+import numpy as np
 app = Flask(__name__)
 
 @app.route('/')
@@ -23,10 +25,14 @@ def hello():
 @app.route('/predict',  methods=['GET'])
 def predict():
      if request.method == 'GET': #this block is only entered when the form is submitted
-        data = request.json #
+        data = request.json 
+        print(data)
+         np.array[data] #receber o array do json
+        loaded_model= joblib.load("classifier.pkl")
+        result= loaded_model.predict[data]
 
         response = app.response_class(
-                response=json.dumps(data),
+                response=json.dumps(result),
                 status=200,
                 mimetype='application/json'
         )
