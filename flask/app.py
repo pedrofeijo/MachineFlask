@@ -1,9 +1,9 @@
-from flask import Flask, render_template, json, request
+from flask import Flask, render_template, json, request 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # return 'Hello, World!'
+#     return 'Hello, World!'
     return render_template("home.html") #retornar ao template HTML
 
 @app.route('/hello', methods=['GET'])
