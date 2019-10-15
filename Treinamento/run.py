@@ -1,11 +1,9 @@
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import LabelEncoder
-from sklearn.linear_model import LogisticRegression
-from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import LabelEncoder
-from sklearn.metrics import accuracy_score, confusion_matrix
 import joblib
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import accuracy_score, confusion_matrix
 
 data = pd.read_csv('/home/feijo/Documents/MachineFlask/Treinamento/iris.csv', names=['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'class'])
 data.head()
@@ -27,12 +25,10 @@ y_test = clf.predict(X)
 print(accuracy_score(y, y_test))
 print(confusion_matrix(y, y_test))
 
-# save classifier
-
+# SAVE CLASSIFIER
 joblib.dump(clf, 'classifier.pkl')
 
-# load classifier
-
+# LOAD CLASSIFIER
 loaded_model= joblib.load("classifier.pkl")
 a1 = float(input('Digite sepal_length = '))
 a2 = float(input('Digite sepal_width =  '))
